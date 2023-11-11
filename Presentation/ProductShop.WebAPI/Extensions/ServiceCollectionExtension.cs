@@ -10,6 +10,8 @@ namespace ProductShop.WebAPI.Extensions
         {
             services.AddDatabaseContext(configuration);
             services.AddApplicationServices();
+            services.AddRepositories();
+
             return services;
         }
     }

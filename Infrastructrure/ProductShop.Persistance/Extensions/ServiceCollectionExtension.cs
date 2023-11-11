@@ -2,7 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using ProductShop.Persistance.Abstractions.DataContexts;
+using ProductShop.Persistence.Abstractions.Repositories;
 using ProductShop.Persistence.DataContexts;
+using ProductShop.Persistence.Repositories;
 
 namespace ProductShop.Persistence.Extensions
 {
@@ -14,6 +16,13 @@ namespace ProductShop.Persistence.Extensions
             {
                 options.UseSqlServer(configuration.GetConnectionString("DbConnectionString"));
             });
+
+            return services;
+        }
+
+        public static IServiceCollection AddRepositories(this IServiceCollection services)
+        {
+            services.AddTransient<IProductRepository, ProductRepository>();
 
             return services;
         }
