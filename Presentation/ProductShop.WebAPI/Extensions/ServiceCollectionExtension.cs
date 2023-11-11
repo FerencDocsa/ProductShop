@@ -1,4 +1,5 @@
-﻿using ProductShop.Persistence.Extensions;
+﻿using ProductShop.Application.Extensions;
+using ProductShop.Persistence.Extensions;
 
 namespace ProductShop.WebAPI.Extensions
 {
@@ -8,7 +9,7 @@ namespace ProductShop.WebAPI.Extensions
             IConfiguration configuration)
         {
             services.AddDatabaseContext(configuration);
-
+            services.AddApplicationServices();
             return services;
         }
     }
