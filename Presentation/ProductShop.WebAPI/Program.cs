@@ -1,3 +1,5 @@
+using ProductShop.WebAPI.Extensions;
+
 namespace ProductShop
 {
     public class Program
@@ -7,7 +9,8 @@ namespace ProductShop
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            builder.Services.AddServices(builder.Configuration);
+            
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
