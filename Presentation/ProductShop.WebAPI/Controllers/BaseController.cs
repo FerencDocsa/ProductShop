@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ProductShop.WebAPI.Controllers
 {
-    //[Route("api/v{version:apiVersion}/[controller]")]
-    //[ApiExplorerSettings(GroupName = "v1")]
+    [Route("api/v{version:apiVersion}/[controller]")] 
     public class BaseController : Controller
     {
         public IMediator _mediator;
