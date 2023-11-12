@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ProductShop.Domain.Entities.Product;
 using ProductShop.Persistance.Abstractions.DataContexts;
 using ProductShop.Persistence.Abstractions.Repositories;
-using ProductShop.Persistence.DataContexts;
 
 namespace ProductShop.Persistence.Repositories
 {
@@ -24,6 +17,17 @@ namespace ProductShop.Persistence.Repositories
         public async Task<IEnumerable<Product>> GetAllProductsAsync()
         {
             var products = await _context.Products.ToListAsync();
+            return products;
+        }
+
+        public async Task<IEnumerable<Product>> GetAllProductsPagedAsync(int page, int pageSize)
+        {
+            var products = await _context
+                .Products
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize).
+                ToListAsync();
+
             return products;
         }
     }
