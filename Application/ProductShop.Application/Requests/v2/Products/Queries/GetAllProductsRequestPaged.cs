@@ -1,7 +1,7 @@
-﻿using MediatR;
+﻿using System.ComponentModel.DataAnnotations;
+using MediatR;
 using ProductShop.Domain.Entities.Product;
 using ProductShop.Persistence.Abstractions.Repositories;
-using System.ComponentModel.DataAnnotations;
 
 namespace ProductShop.Application.Requests.v2.Products.Queries
 {

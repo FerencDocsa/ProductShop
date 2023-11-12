@@ -33,7 +33,7 @@ namespace ProductShop.Persistence.Repositories
             }
 
             var sortingProperty = GetSortingProperty(sortBy);
-            productQuery = sortBy?.ToLower() == "desc" ? productQuery.OrderByDescending(sortingProperty) : productQuery.OrderBy(sortingProperty);
+            productQuery = orderBy?.ToLower() == "desc" ? productQuery.OrderByDescending(sortingProperty) : productQuery.OrderBy(sortingProperty);
 
             var products = await productQuery
                 .Skip((page - 1) * pageSize)
