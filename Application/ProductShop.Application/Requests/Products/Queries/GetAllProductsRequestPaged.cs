@@ -3,7 +3,7 @@ using MediatR;
 using ProductShop.Domain.Entities.Product;
 using ProductShop.Persistence.Abstractions.Repositories;
 
-namespace ProductShop.Application.Requests.v2.Products.Queries
+namespace ProductShop.Application.Requests.Products.Queries
 {
     public class GetAllProductsRequestPaged : IRequest<IEnumerable<Product>>
     {
