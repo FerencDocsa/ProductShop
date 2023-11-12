@@ -31,6 +31,10 @@ namespace ProductShop.WebAPI.Controllers.v1
         /// </remarks>
         [HttpGet]
         [Route("{id:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status408RequestTimeout)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Product>> GetProductById(int id)
         {
             var product = await _mediator.Send(new GetProductByIdRequest() { Id = id });
@@ -43,6 +47,10 @@ namespace ProductShop.WebAPI.Controllers.v1
         /// <remarks>List of products</remarks>>
         [HttpGet]
         [Route("GetAll")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status408RequestTimeout)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<Product>>> GetAllProducts()
         {
             var products = await _mediator.Send(new GetAllProductsRequest());
@@ -57,6 +65,10 @@ namespace ProductShop.WebAPI.Controllers.v1
         /// <remarks>Returns NoContent in case of successful update or response depending on error</remarks>
         [HttpPut]
         [Route("{id:int}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status408RequestTimeout)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateProduct(int id, [FromBody] UpdateProductDescriptionRequestDto request)
         {
             await _mediator.Send(new UpdateProductDescriptionRequest()

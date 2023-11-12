@@ -28,6 +28,10 @@ namespace ProductShop.WebAPI.Controllers.v2
         /// <param name="sortBy">Sort order for results (asc or desc)</param>
         /// <remarks>List of products</remarks>
         [HttpGet, MapToApiVersion("2.0")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status408RequestTimeout)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<Product>>> GetAllProductsAsync(string? searchBy, string? orderBy, string? sortBy, int page = 1, int pageSize = 10)
         {
             var products = await _mediator.Send(new GetAllProductsRequestPaged(page, pageSize, searchBy, orderBy, sortBy));
