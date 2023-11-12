@@ -4,7 +4,6 @@ using ProductShop.Application.Extensions;
 using ProductShop.Persistence.Extensions;
 using ProductShop.WebAPI.Configuration;
 using System.Reflection;
-using ProductShop.WebAPI.Middlewares;
 
 namespace ProductShop.WebAPI.Extensions
 {
@@ -23,7 +22,6 @@ namespace ProductShop.WebAPI.Extensions
                 options.IncludeXmlComments(xmlPath);
             });
             services.ConfigureOptions<SwaggerConfiguration>();
-            //services.AddTransient<GlobalExceptionHandlingMiddleware>();
 
             return services;
         }

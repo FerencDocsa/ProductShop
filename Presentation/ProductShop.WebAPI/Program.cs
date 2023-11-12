@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Diagnostics;
 using ProductShop.WebAPI.Extensions;
 using ProductShop.WebAPI.Middlewares;
+using Serilog;
 
 namespace ProductShop
 {
@@ -9,16 +9,28 @@ namespace ProductShop
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            // Configure Serilog
+            builder.Host.UseSerilog((hostingContext, loggerConfiguration) => loggerConfiguration
+                    .ReadFrom.Configuration(hostingContext.Configuration)
+                    .Enrich.FromLogContext()
+                    .WriteTo.Console()
+                    .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day));
+
+            // Add and configure services
             builder.Services.AddServices(builder.Configuration);
-            builder.Services.AddControllers();
             builder.Services.AddApiVersioningConfiguration();
+            builder.Services.AddControllers();
             
             var app = builder.Build();
+
+            // Custom extensions
             app.AddSwagger();
-            app.UseHttpsRedirection();
-            app.UseAuthorization();
             app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
+            app.UseSerilogRequestLogging();
+            app.UseHttpsRedirection();
+            app.UseAuthorization();
             app.MapControllers();
             app.Run();
         }
