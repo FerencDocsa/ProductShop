@@ -10,12 +10,26 @@ using ProductShop.WebAPI.Requests;
 
 namespace ProductShop.WebAPI.Controllers.v1
 {
+    /// <summary>
+    /// Controller for Products
+    /// </summary>
     [ApiController]
     [ApiVersion("1.0")]
     public class ProductsController : BaseController
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="mediator">Dependency injection of Mediator</param>
         public ProductsController(IMediator mediator) : base(mediator) { }
 
+        /// <summary>
+        /// Get a product for provided ID
+        /// </summary>
+        /// <param name="id">ID of product to be found</param>
+        /// <remarks>
+        /// Returns product for provided ID or NotFound response
+        /// </remarks>
         [HttpGet]
         [Route("{id:int}")]
         public async Task<ActionResult<Product>> GetProductById(int id)
@@ -31,6 +45,10 @@ namespace ProductShop.WebAPI.Controllers.v1
             }
         }
 
+        /// <summary>
+        /// Get all products
+        /// </summary>
+        /// <remarks>List of products</remarks>>
         [HttpGet]
         [Route("GetAll")]
         public async Task<ActionResult<IEnumerable<Product>>> GetAllProducts()
@@ -39,6 +57,12 @@ namespace ProductShop.WebAPI.Controllers.v1
             return Ok(products);
         }
 
+        /// <summary>
+        /// Partially updates product with new description
+        /// </summary>
+        /// <param name="id">ID of product to update</param>
+        /// <param name="request">Request consisting of new description</param>
+        /// <remarks>Returns NoContent in case of successful update or response depending on error</remarks>
         [HttpPut]
         [Route("{id:int}")]
         public async Task<ActionResult> UpdateProduct(int id, [FromBody] UpdateProductDescriptionRequestDto request)
@@ -58,6 +82,4 @@ namespace ProductShop.WebAPI.Controllers.v1
             }
         }
     }
-
-
 }

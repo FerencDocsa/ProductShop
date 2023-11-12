@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using ProductShop.Application.Extensions;
 using ProductShop.Persistence.Extensions;
 using ProductShop.WebAPI.Configuration;
+using System.Reflection;
 
 namespace ProductShop.WebAPI.Extensions
 {
@@ -14,7 +15,12 @@ namespace ProductShop.WebAPI.Extensions
             services.AddDatabaseContext(configuration);
             services.AddApplicationServices();
             services.AddRepositories();
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(options =>
+            {
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                options.IncludeXmlComments(xmlPath);
+            });
             services.ConfigureOptions<SwaggerConfiguration>();
 
             return services;
