@@ -15,12 +15,21 @@ namespace ProductShop.Persistence.Repositories
             _context = context;
         }
 
+        /// <inheritdoc/>
+        public async Task<Product?> GetByIdAsyncTask(int id, CancellationToken cancellationToken)
+        {
+            var product = await _context.Products.FirstOrDefaultAsync(c => c.Id == id, cancellationToken);
+            return product;
+        }
+
+        /// <inheritdoc/>
         public async Task<IEnumerable<Product>> GetAllProductsAsync(CancellationToken cancellationToken)
         {
             var products = await _context.Products.AsNoTracking().ToListAsync(cancellationToken);
             return products;
         }
 
+        /// <inheritdoc/>
         public async Task<IEnumerable<Product>> GetAllProductsPagedAsync(int page, int pageSize, string? searchBy, string? orderBy, string? sortBy, CancellationToken cancellationToken)
         {
             var productQuery = _context.Products.AsNoTracking();
