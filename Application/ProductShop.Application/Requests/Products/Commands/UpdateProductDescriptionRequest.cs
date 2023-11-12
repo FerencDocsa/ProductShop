@@ -14,7 +14,6 @@ namespace ProductShop.Application.Requests.v1.Products.Commands
         public string Description { get; set; } = string.Empty;
     }
 
-
     public class UpdateProductDescriptionRequestHandler : IRequestHandler<UpdateProductDescriptionRequest>
     {
         private readonly IProductRepository _repository;
