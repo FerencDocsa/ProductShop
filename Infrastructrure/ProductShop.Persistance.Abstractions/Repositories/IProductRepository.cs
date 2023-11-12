@@ -1,9 +1,4 @@
 ﻿using ProductShop.Domain.Entities.Product;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductShop.Persistence.Abstractions.Repositories
 {
@@ -11,6 +6,6 @@ namespace ProductShop.Persistence.Abstractions.Repositories
     {
         Task<IEnumerable<Product>> GetAllProductsAsync();
 
-        Task<IEnumerable<Product>> GetAllProductsPagedAsync(int page, int pageSize);
+        Task<IEnumerable<Product>> GetAllProductsPagedAsync(int page, int pageSize, string? searchBy, string? orderBy, string? sortBy);
     }
 }

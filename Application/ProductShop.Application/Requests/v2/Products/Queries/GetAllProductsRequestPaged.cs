@@ -1,12 +1,7 @@
 ﻿using MediatR;
 using ProductShop.Domain.Entities.Product;
 using ProductShop.Persistence.Abstractions.Repositories;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductShop.Application.Requests.v2.Products.Queries
 {
@@ -18,10 +13,19 @@ namespace ProductShop.Application.Requests.v2.Products.Queries
         [Required]
         public int PageSize { get; }
 
-        public GetAllProductsRequestPaged(int page, int pageSize)
+        public string? SearchBy { get; }
+
+        public string? OrderBy { get; }
+
+        public string? SortBy { get; }
+
+        public GetAllProductsRequestPaged(int page, int pageSize, string? searchBy, string? orderBy, string? sortBy)
         {
             Page = page;
             PageSize = pageSize;
+            SearchBy = searchBy;
+            OrderBy = orderBy;
+            SortBy = sortBy;
         }
     }
 
@@ -36,7 +40,7 @@ namespace ProductShop.Application.Requests.v2.Products.Queries
 
         public async Task<IEnumerable<Product>> Handle(GetAllProductsRequestPaged request, CancellationToken cancellationToken)
         {
-            return await _productRepository.GetAllProductsPagedAsync(request.Page, request.PageSize);
+            return await _productRepository.GetAllProductsPagedAsync(request.Page, request.PageSize, request.SearchBy, request.OrderBy, request.SortBy);
         }
     }
 }
