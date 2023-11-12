@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Diagnostics;
 using ProductShop.WebAPI.Extensions;
+using ProductShop.WebAPI.Middlewares;
 
 namespace ProductShop
 {
@@ -15,6 +17,8 @@ namespace ProductShop
             app.AddSwagger();
             app.UseHttpsRedirection();
             app.UseAuthorization();
+            app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
+
             app.MapControllers();
             app.Run();
         }
