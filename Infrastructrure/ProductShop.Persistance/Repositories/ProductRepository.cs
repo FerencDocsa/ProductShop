@@ -1,8 +1,10 @@
 ﻿using System.Linq.Expressions;
+using Azure.Core;
 using Microsoft.EntityFrameworkCore;
 using ProductShop.Domain.Entities.Product;
 using ProductShop.Persistance.Abstractions.DataContexts;
 using ProductShop.Persistence.Abstractions.Repositories;
+using ProductShop.Persistence.Exceptions;
 
 namespace ProductShop.Persistence.Repositories
 {
@@ -16,7 +18,7 @@ namespace ProductShop.Persistence.Repositories
         }
 
         /// <inheritdoc/>
-        public async Task<Product?> GetByIdAsyncTask(int id, CancellationToken cancellationToken)
+        public async Task<Product?> GetByIdAsync(int id, CancellationToken cancellationToken)
         {
             var product = await _context.Products.FirstOrDefaultAsync(c => c.Id == id, cancellationToken);
             return product;
@@ -50,6 +52,20 @@ namespace ProductShop.Persistence.Repositories
                 ToListAsync(cancellationToken);
 
             return products;
+        }
+
+        public void UpdateProductDescriptionAsync(Product product, string description)
+        {
+            product.UpdateDescription(description);
+            try
+            {
+                _context.Products.Update(product);
+                _context.SaveChangesAsync();
+            }
+            catch
+            {
+                throw new ProductUpdateException(product.Id);
+            }
         }
 
         private static Expression<Func<Product, object>> GetSortingProperty(string? sortBy)

@@ -15,6 +15,11 @@ namespace ProductShop.Persistence.DataContexts
 
         #endregion
 
+        public virtual async Task SaveChangesAsync()
+        {
+            await base.SaveChangesAsync();
+        }
+
         /// <summary>
         /// Applies all configurations of type IEntityTypeConfiguration from current assembly and seeds data
         /// </summary>

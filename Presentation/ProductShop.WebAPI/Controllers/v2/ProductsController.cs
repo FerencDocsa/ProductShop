@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ProductShop.Application.Requests.v2.Products.Queries;
+using ProductShop.Application.Requests.Products.Queries;
 using ProductShop.Domain.Entities.Product;
 
 namespace ProductShop.WebAPI.Controllers.v2

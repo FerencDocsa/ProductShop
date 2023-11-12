@@ -10,7 +10,7 @@ namespace ProductShop.Persistence.Abstractions.Repositories
         /// <param name="id">ID of product</param>
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Product if found or null</returns>
-        Task<Product?> GetByIdAsyncTask(int id, CancellationToken cancellationToken);
+        Task<Product?> GetByIdAsync(int id, CancellationToken cancellationToken);
 
         /// <summary>
         /// Get all products from database
@@ -30,5 +30,12 @@ namespace ProductShop.Persistence.Abstractions.Repositories
         /// <param name="cancellationToken">Cancellation token</param>
         /// <returns>Enumerable of products</returns>
         Task<IEnumerable<Product>> GetAllProductsPagedAsync(int page, int pageSize, string? searchBy, string? orderBy, string? sortBy, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Updates description of provided Product entity
+        /// </summary>
+        /// <param name="product">Product to update</param>
+        /// <param name="description">New description</param>
+        void UpdateProductDescriptionAsync(Product product, string description);
     }
 }

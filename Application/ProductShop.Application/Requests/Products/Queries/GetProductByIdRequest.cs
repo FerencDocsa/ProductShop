@@ -23,7 +23,7 @@ namespace ProductShop.Application.Requests.v1.Products.Queries
 
         public async Task<Product> Handle(GetProductByIdRequest request, CancellationToken cancellationToken)
         {
-            var product = await _productRepository.GetByIdAsyncTask(request.Id, cancellationToken);
+            var product = await _productRepository.GetByIdAsync(request.Id, cancellationToken);
 
             if (product == null)
             {

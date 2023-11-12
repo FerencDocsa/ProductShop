@@ -18,11 +18,8 @@
             Description = description;
         }
 
-        public void Update(string name, Uri imgUri, decimal price, string? description)
+        public void UpdateDescription(string description)
         {
-            Name = name;
-            ImgUri = imgUri;
-            Price = price;
             Description = description;
         }
     }

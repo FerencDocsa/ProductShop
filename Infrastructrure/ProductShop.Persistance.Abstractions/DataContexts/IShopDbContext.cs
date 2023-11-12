@@ -11,5 +11,7 @@ namespace ProductShop.Persistance.Abstractions.DataContexts
     public interface IShopDbContext
     {
         DbSet<Product> Products { get; }
+
+        public Task SaveChangesAsync();
     }
 }
