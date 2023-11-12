@@ -11,7 +11,7 @@ namespace ProductShop.Persistence.DataContexts
 
         #region Entities
 
-        public DbSet<Product> Products => Set<Product>();
+        public DbSet<Product> Products { get; set; }
 
         #endregion
 
