@@ -15,15 +15,15 @@ namespace ProductShop.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Product>> GetAllProductsAsync()
+        public async Task<IEnumerable<Product>> GetAllProductsAsync(CancellationToken cancellationToken)
         {
-            var products = await _context.Products.ToListAsync();
+            var products = await _context.Products.AsNoTracking().ToListAsync(cancellationToken);
             return products;
         }
 
-        public async Task<IEnumerable<Product>> GetAllProductsPagedAsync(int page, int pageSize, string? searchBy, string? orderBy, string? sortBy)
+        public async Task<IEnumerable<Product>> GetAllProductsPagedAsync(int page, int pageSize, string? searchBy, string? orderBy, string? sortBy, CancellationToken cancellationToken)
         {
-            IQueryable<Product> productQuery = _context.Products;
+            var productQuery = _context.Products.AsNoTracking();
 
             if (!string.IsNullOrWhiteSpace(searchBy))
             {
@@ -38,7 +38,7 @@ namespace ProductShop.Persistence.Repositories
             var products = await productQuery
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize).
-                ToListAsync();
+                ToListAsync(cancellationToken);
 
             return products;
         }

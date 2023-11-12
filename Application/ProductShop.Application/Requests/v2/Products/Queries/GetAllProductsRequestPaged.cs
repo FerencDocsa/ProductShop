@@ -40,7 +40,7 @@ namespace ProductShop.Application.Requests.v2.Products.Queries
 
         public async Task<IEnumerable<Product>> Handle(GetAllProductsRequestPaged request, CancellationToken cancellationToken)
         {
-            return await _productRepository.GetAllProductsPagedAsync(request.Page, request.PageSize, request.SearchBy, request.OrderBy, request.SortBy);
+            return await _productRepository.GetAllProductsPagedAsync(request.Page, request.PageSize, request.SearchBy, request.OrderBy, request.SortBy, cancellationToken);
         }
     }
 }

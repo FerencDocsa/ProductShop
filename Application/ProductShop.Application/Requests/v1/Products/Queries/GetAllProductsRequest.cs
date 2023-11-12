@@ -22,7 +22,7 @@ namespace ProductShop.Application.Requests.Products.Queries
         }
         public async Task<IEnumerable<Product>> Handle(GetAllProductsRequest request, CancellationToken cancellationToken)
         {
-            return await _productRepository.GetAllProductsAsync();
+            return await _productRepository.GetAllProductsAsync(cancellationToken);
         }
     }
 }
