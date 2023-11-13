@@ -7,19 +7,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{10F612AC-B764-44F0-84CB-31F1039A1832}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructrure", "Infrastructrure", "{E95398C4-F1DA-4FB1-852B-8CBF04DF3AE8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E95398C4-F1DA-4FB1-852B-8CBF04DF3AE8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{032B3C24-0DD7-4394-843A-1438F837D923}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductShop.WebAPI", "Presentation\ProductShop.WebAPI\ProductShop.WebAPI.csproj", "{F41B37A5-096D-4226-9674-4E0114E473D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductShop.Persistence", "Infrastructrure\ProductShop.Persistance\ProductShop.Persistence.csproj", "{10B63AF6-E115-4C0B-B194-C32FE3F4713A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductShop.Persistence", "Infrastructrure\ProductShop.Persistance\ProductShop.Persistence.csproj", "{10B63AF6-E115-4C0B-B194-C32FE3F4713A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductShop.Domain", "Domain\ProductShop.Domain\ProductShop.Domain.csproj", "{B136E365-DD98-4F81-8990-4172DF9D3286}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductShop.Domain", "Domain\ProductShop.Domain\ProductShop.Domain.csproj", "{B136E365-DD98-4F81-8990-4172DF9D3286}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductShop.Application", "Application\ProductShop.Application\ProductShop.Application.csproj", "{511568CD-086F-45CF-8D5E-A08AF76E4EB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductShop.Application", "Application\ProductShop.Application\ProductShop.Application.csproj", "{511568CD-086F-45CF-8D5E-A08AF76E4EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductShop.Persistence.Abstractions", "Infrastructrure\ProductShop.Persistance.Abstractions\ProductShop.Persistence.Abstractions.csproj", "{84921F0F-26D9-4FAC-9A24-04792B95A0AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductShop.Persistence.Abstractions", "Infrastructrure\ProductShop.Persistance.Abstractions\ProductShop.Persistence.Abstractions.csproj", "{84921F0F-26D9-4FAC-9A24-04792B95A0AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FFD80DE1-11E8-43C0-A21F-CEEFA6A8ADD3}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  # MSSQL Server container
+  db:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    environment:
+        SA_PASSWORD: "Strong2@PWD12"
+        ACCEPT_EULA: "Y"
+
+  # .NET Core Web API container
+  webapi:
+    build:
+      context: .
+      dockerfile: ./Presentation/ProductShop.WebAPI/Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "60522:443"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:443;"

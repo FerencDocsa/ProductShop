@@ -2,7 +2,7 @@ using ProductShop.WebAPI.Extensions;
 using ProductShop.WebAPI.Middlewares;
 using Serilog;
 
-namespace ProductShop
+namespace ProductShop.WebAPI
 {
     public class Program
     {
@@ -17,11 +17,12 @@ namespace ProductShop
                     .WriteTo.Console()
                     .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day));
 
+
             // Add and configure services
             builder.Services.AddServices(builder.Configuration);
             builder.Services.AddApiVersioningConfiguration();
             builder.Services.AddControllers();
-            
+
             var app = builder.Build();
 
             // Custom extensions
@@ -29,7 +30,7 @@ namespace ProductShop
             app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
             app.UseSerilogRequestLogging();
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
             app.Run();
