@@ -1,12 +1,14 @@
-version: '3.9'
+version: '3.8'
 
 services:
   # MSSQL Server container
-  db:
-    image: "mcr.microsoft.com/mssql/server:2022-latest"
+  mssql:
+    image: mcr.microsoft.com/mssql/server
+    container_name: mssql-container
     environment:
-        SA_PASSWORD: "Strong2@PWD12"
-        ACCEPT_EULA: "Y"
+        SA_PASSWORD: Strong2@PWD12
+        ACCEPT_EULA: Y
+        MSSQL_PID: Express
 
   # .NET Core Web API container
   webapi:
@@ -14,9 +16,10 @@ services:
       context: .
       dockerfile: ./Presentation/ProductShop.WebAPI/Dockerfile
     depends_on:
-      - db
+      - mssql
     ports:
-      - "60522:443"
+      - "5000:80"
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
-      ASPNETCORE_URLS: "http://+:443;"
+      ConnectionStrings__DbConnectionString: "Server=mssql;User=sa;Password=Strong2@PWD12;TrustServerCertificate=true;"
+ 

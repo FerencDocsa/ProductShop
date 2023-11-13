@@ -30,7 +30,7 @@ namespace ProductShop.WebAPI
             app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
             app.UseSerilogRequestLogging();
-            //app.UseHttpsRedirection();
+            app.InitDatabase(builder.Configuration);
             app.UseAuthorization();
             app.MapControllers();
             app.Run();
