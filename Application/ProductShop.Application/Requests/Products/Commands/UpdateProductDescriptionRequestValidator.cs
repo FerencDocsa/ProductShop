@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using ProductShop.Application.Requests.v1.Products.Commands;
 
 namespace ProductShop.Application.Requests.Products.Commands
 {

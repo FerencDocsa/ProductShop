@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProductShop.Domain.Entities.Product;
 
-namespace ProductShop.Persistance.Abstractions.DataContexts
+namespace ProductShop.Persistence.Abstractions.DataContexts
 {
     public interface IShopDbContext
     {

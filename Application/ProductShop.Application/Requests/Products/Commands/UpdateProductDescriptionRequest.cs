@@ -3,7 +3,7 @@ using MediatR;
 using ProductShop.Application.Exceptions;
 using ProductShop.Persistence.Abstractions.Repositories;
 
-namespace ProductShop.Application.Requests.v1.Products.Commands
+namespace ProductShop.Application.Requests.Products.Commands
 {
     public class UpdateProductDescriptionRequest : IRequest
     {

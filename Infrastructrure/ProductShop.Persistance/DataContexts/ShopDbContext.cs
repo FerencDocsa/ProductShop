@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProductShop.Domain.Entities.Product;
-using ProductShop.Persistance.Abstractions.DataContexts;
+using ProductShop.Persistence.Abstractions.DataContexts;
 using ProductShop.Persistence.Extensions;
 
 namespace ProductShop.Persistence.DataContexts

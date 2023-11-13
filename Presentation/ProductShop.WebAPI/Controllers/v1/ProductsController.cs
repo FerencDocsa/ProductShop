@@ -1,8 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using ProductShop.Application.Requests.Products.Commands;
 using ProductShop.Application.Requests.Products.Queries;
-using ProductShop.Application.Requests.v1.Products.Commands;
-using ProductShop.Application.Requests.v1.Products.Queries;
 using ProductShop.Domain.Entities.Product;
 using ProductShop.WebAPI.Requests;
 

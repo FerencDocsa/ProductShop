@@ -2,7 +2,7 @@
 using Azure.Core;
 using Microsoft.EntityFrameworkCore;
 using ProductShop.Domain.Entities.Product;
-using ProductShop.Persistance.Abstractions.DataContexts;
+using ProductShop.Persistence.Abstractions.DataContexts;
 using ProductShop.Persistence.Abstractions.Repositories;
 using ProductShop.Persistence.Exceptions;
 

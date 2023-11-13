@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using ProductShop.Persistance.Abstractions.DataContexts;
 using ProductShop.Persistence.Abstractions.Repositories;
 using ProductShop.Persistence.DataContexts;
 using ProductShop.Persistence.Repositories;
+using ProductShop.Persistence.Abstractions.DataContexts;
 
 namespace ProductShop.Persistence.Extensions
 {
