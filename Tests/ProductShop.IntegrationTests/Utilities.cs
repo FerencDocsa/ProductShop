@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
 using ProductShop.Domain.Entities.Product;
 using ProductShop.Persistence.DataContexts;
 
@@ -7,17 +8,17 @@ namespace ProductShop.IntegrationTests
 {
     public static class Utilities
     {
-        public static void SeedData(ShopDbContext context)
+        public static async Task SeedData(ShopDbContext context)
         {
             context.Products.AddRange(GetSeedData());
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
 
-        public static void ReSeedData(ShopDbContext context)
+        public static async Task ReSeedData(ShopDbContext context)
         {
             context.Products.RemoveRange(context.Products);
-            context.SaveChanges();
-            SeedData(context);
+            await context.SaveChangesAsync();
+            await SeedData(context);
         }
 
         public static List<Product> GetSeedData()
