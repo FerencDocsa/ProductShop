@@ -21,6 +21,7 @@ namespace ProductShop.Application.Requests.Products.Commands
             RuleFor(c => c.ProductId)
                 .NotNull()
                 .NotEmpty()
+                .GreaterThan(0)
                 .WithMessage("ProductID must be provided");
         }
     }
