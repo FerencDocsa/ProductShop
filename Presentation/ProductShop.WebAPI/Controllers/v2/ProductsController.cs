@@ -34,7 +34,7 @@ namespace ProductShop.WebAPI.Controllers.v2
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<Product>>> GetAllProductsAsync(string? searchBy, string? orderBy, string? sortBy, int page = 1, int pageSize = 10)
         {
-            var products = await _mediator.Send(new GetAllProductsRequestPaged(page, pageSize, searchBy, orderBy, sortBy));
+            var products = await Mediator.Send(new GetAllProductsRequestPaged(page, pageSize, searchBy, orderBy, sortBy));
             return Ok(products);
         }
     }

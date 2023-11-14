@@ -36,7 +36,7 @@ namespace ProductShop.WebAPI.Controllers.v1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<Product>> GetProductById(int id)
         {
-            var product = await _mediator.Send(new GetProductByIdRequest() { Id = id });
+            var product = await Mediator.Send(new GetProductByIdRequest() { Id = id });
             return Ok(product);
         }
 
@@ -52,7 +52,7 @@ namespace ProductShop.WebAPI.Controllers.v1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<Product>>> GetAllProducts()
         {
-            var products = await _mediator.Send(new GetAllProductsRequest());
+            var products = await Mediator.Send(new GetAllProductsRequest());
             return Ok(products);
         }
 
@@ -70,7 +70,7 @@ namespace ProductShop.WebAPI.Controllers.v1
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateProduct(int id, [FromBody] UpdateProductDescriptionRequestDto request)
         {
-            await _mediator.Send(new UpdateProductDescriptionRequest()
+            await Mediator.Send(new UpdateProductDescriptionRequest()
                 { ProductId = id, Description = request.Description });
             return NoContent();
         }

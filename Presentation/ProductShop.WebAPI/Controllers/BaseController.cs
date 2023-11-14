@@ -10,7 +10,10 @@ namespace ProductShop.WebAPI.Controllers
     [Route("api/v{version:apiVersion}/[controller]")] 
     public class BaseController : Controller
     {
-        public IMediator _mediator;
+        /// <summary>
+        /// Mediator dependency injection
+        /// </summary>
+        public IMediator Mediator;
 
         /// <summary>
         /// Constructor for base controller
@@ -18,7 +21,7 @@ namespace ProductShop.WebAPI.Controllers
         /// <param name="mediator">Mediator dependency injection</param>
         public BaseController(IMediator mediator)
         {
-            _mediator = mediator;
+            Mediator = mediator;
         }
     }
 }
