@@ -7,8 +7,9 @@ namespace ProductShop.WebAPI.Requests
     /// </summary>
     public class UpdateProductDescriptionRequestDto
     {
-        [Required (ErrorMessage = "Description cannot be empty")]
-        [StringLength(200, ErrorMessage = "The maximum length of description is 200 characters")]
+        /// <summary>
+        /// New description for product
+        /// </summary>
         public string Description { get; set; } = string.Empty;
     }
 }

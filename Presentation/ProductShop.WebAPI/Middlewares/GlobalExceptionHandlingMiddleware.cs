@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Text.Json;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using ProductShop.Application.Exceptions;
 using ProductShop.Persistence.Exceptions;
@@ -14,6 +15,10 @@ namespace ProductShop.WebAPI.Middlewares
     {
         private readonly RequestDelegate _next;
 
+        /// <summary>
+        /// Constructor for <see cref="GlobalExceptionHandlingMiddleware"/>
+        /// </summary>
+        /// <param name="next"></param>
         public GlobalExceptionHandlingMiddleware(RequestDelegate next)
         {
             _next = next;
@@ -49,6 +54,11 @@ namespace ProductShop.WebAPI.Middlewares
 
                     case ProductUpdateException updateException:
                         exceptionMessage = updateException.Message;
+                        break;
+
+                    case ValidationException validationException:
+                        problemDetails.Extensions["errors"] = validationException.Errors;
+                        problemDetails.Status = (int)HttpStatusCode.BadRequest;
                         break;
 
                     default:

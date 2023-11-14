@@ -5,7 +5,7 @@ namespace ProductShop.Application.Requests.Products.Commands
     /// <summary>
     /// Example validator for request UpdateProductDescriptionRequest
     /// </summary>
-    internal class UpdateProductDescriptionRequestValidator : AbstractValidator<UpdateProductDescriptionRequest>
+    public class UpdateProductDescriptionRequestValidator : AbstractValidator<UpdateProductDescriptionRequest>
     {
         public UpdateProductDescriptionRequestValidator()
         {
