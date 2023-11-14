@@ -28,7 +28,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FB96CBB8-D34A-4D69-B466-926BA1BE1238}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductShop.UnitTests", "Tests\ProductShop.UnitTests\ProductShop.UnitTests.csproj", "{12122E66-3DE0-4BFE-B69C-E40B1D8093A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductShop.UnitTests", "Tests\ProductShop.UnitTests\ProductShop.UnitTests.csproj", "{12122E66-3DE0-4BFE-B69C-E40B1D8093A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductShop.IntegrationTests", "Tests\ProductShop.IntegrationTests\ProductShop.IntegrationTests.csproj", "{D3C6E218-54CB-4B15-AA45-C7808C645009}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +62,10 @@ Global
 		{12122E66-3DE0-4BFE-B69C-E40B1D8093A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12122E66-3DE0-4BFE-B69C-E40B1D8093A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12122E66-3DE0-4BFE-B69C-E40B1D8093A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3C6E218-54CB-4B15-AA45-C7808C645009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3C6E218-54CB-4B15-AA45-C7808C645009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3C6E218-54CB-4B15-AA45-C7808C645009}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3C6E218-54CB-4B15-AA45-C7808C645009}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{511568CD-086F-45CF-8D5E-A08AF76E4EB7} = {0802144A-95CE-41BA-8596-4F4CC945878E}
 		{84921F0F-26D9-4FAC-9A24-04792B95A0AF} = {E95398C4-F1DA-4FB1-852B-8CBF04DF3AE8}
 		{12122E66-3DE0-4BFE-B69C-E40B1D8093A4} = {FB96CBB8-D34A-4D69-B466-926BA1BE1238}
+		{D3C6E218-54CB-4B15-AA45-C7808C645009} = {FB96CBB8-D34A-4D69-B466-926BA1BE1238}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2DF8D0BE-02EA-4355-A37F-955CC4F36D44}
