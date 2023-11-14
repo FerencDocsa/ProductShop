@@ -37,7 +37,7 @@ namespace ProductShop.IntegrationTests
             };
         }
 
-        public static async Task<HttpResponseMessage> MakeApiCallAsync(HttpClient client, string apiRoute, HttpMethod httpMethod, object request = null)
+        public static async Task<HttpResponseMessage> MakeApiCallAsync(HttpClient client, string apiRoute, HttpMethod httpMethod, object? request = null)
         {
             var requestAsJson = JsonSerializer.Serialize(request);
             var httpContent = new StringContent(requestAsJson, Encoding.UTF8, "application/json");
