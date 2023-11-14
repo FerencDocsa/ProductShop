@@ -2,6 +2,9 @@
 
 namespace ProductShop.Application.Requests.Products.Queries
 {
+    /// <summary>
+    /// Validator for <see cref="GetAllProductsRequestPaged"/>
+    /// </summary>
     public class GetAllProductsRequestPagedValidator : AbstractValidator<GetAllProductsRequestPaged>
     {
         public GetAllProductsRequestPagedValidator()

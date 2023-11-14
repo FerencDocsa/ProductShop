@@ -3,7 +3,7 @@
 namespace ProductShop.Application.Requests.Products.Commands
 {
     /// <summary>
-    /// Example validator for request UpdateProductDescriptionRequest
+    /// Validator for request <see cref="UpdateProductDescriptionRequest"/>
     /// </summary>
     public class UpdateProductDescriptionRequestValidator : AbstractValidator<UpdateProductDescriptionRequest>
     {

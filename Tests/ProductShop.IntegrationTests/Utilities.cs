@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using System.Text.Json;
-using Microsoft.EntityFrameworkCore;
 using ProductShop.Domain.Entities.Product;
 using ProductShop.Persistence.DataContexts;
 

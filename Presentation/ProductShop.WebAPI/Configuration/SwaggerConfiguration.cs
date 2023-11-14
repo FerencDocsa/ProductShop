@@ -12,11 +12,19 @@ namespace ProductShop.WebAPI.Configuration
     {
         private readonly IApiVersionDescriptionProvider _provider;
 
+        /// <summary>
+        /// Constructor for <see cref="SwaggerConfiguration"/>
+        /// </summary>
+        /// <param name="provider">IApiVersionDescriptionProvider</param>
         public SwaggerConfiguration(IApiVersionDescriptionProvider provider)
         {
             _provider = provider;
         }
 
+        /// <summary>
+        /// Configure SwaggerDocsa
+        /// </summary>
+        /// <param name="options"></param>
         public void Configure(SwaggerGenOptions options)
         {
             foreach (var apiVersionDescription in _provider.ApiVersionDescriptions)
@@ -25,11 +33,21 @@ namespace ProductShop.WebAPI.Configuration
             }
         }
 
+        /// <summary>
+        /// Configure implementation of IConfigureNamedOptions
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="options"></param>
         public void Configure(string? name, SwaggerGenOptions options)
         {
             Configure(options);
         }
 
+        /// <summary>
+        /// Helper to create API version info
+        /// </summary>
+        /// <param name="description"></param>
+        /// <returns></returns>
         private static OpenApiInfo GenerateApiVersionInfo(ApiVersionDescription description)
         {
             var info = new OpenApiInfo

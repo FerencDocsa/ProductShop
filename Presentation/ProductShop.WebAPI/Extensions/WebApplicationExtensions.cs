@@ -2,8 +2,15 @@
 
 namespace ProductShop.WebAPI.Extensions
 {
+    /// <summary>
+    /// Extensions for WebApplication
+    /// </summary>
     public static class WebApplicationExtensions
     {
+        /// <summary>
+        /// Register swagger 
+        /// </summary>
+        /// <param name="app">WebApplication instance</param>
         public static void AddSwagger(this WebApplication app)
         {
             if (!app.Environment.IsDevelopment()) return;
@@ -16,6 +23,11 @@ namespace ProductShop.WebAPI.Extensions
             });
         }
 
+        /// <summary>
+        /// Initialize database
+        /// </summary>
+        /// <param name="app">WebApplication instance</param>
+        /// <param name="configuration">Configuration instance</param>
         public static void InitDatabase(this WebApplication app, IConfiguration configuration)
         {
             using var serviceScope = app.Services.GetService<IServiceScopeFactory>()?.CreateScope();
