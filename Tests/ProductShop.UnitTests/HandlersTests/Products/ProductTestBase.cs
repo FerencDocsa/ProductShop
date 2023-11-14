@@ -1,11 +1,6 @@
 ﻿using Moq;
 using ProductShop.Domain.Entities.Product;
 using ProductShop.Persistence.Abstractions.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductShop.UnitTests.HandlersTests.Products
 {

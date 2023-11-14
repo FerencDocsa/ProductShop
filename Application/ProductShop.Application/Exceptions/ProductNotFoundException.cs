@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProductShop.Application.Exceptions
+﻿namespace ProductShop.Application.Exceptions
 {
     public sealed class ProductNotFoundException : Exception
     {

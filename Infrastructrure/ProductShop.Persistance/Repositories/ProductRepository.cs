@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using Azure.Core;
 using Microsoft.EntityFrameworkCore;
 using ProductShop.Domain.Entities.Product;
 using ProductShop.Persistence.Abstractions.DataContexts;

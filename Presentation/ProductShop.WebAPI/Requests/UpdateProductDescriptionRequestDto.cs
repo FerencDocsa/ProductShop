@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ProductShop.WebAPI.Requests
+﻿namespace ProductShop.WebAPI.Requests
 {
     /// <summary>
     /// Dto for Updating product request

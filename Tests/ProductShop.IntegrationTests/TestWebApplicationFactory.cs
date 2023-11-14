@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-
 using ProductShop.Persistence.Abstractions.DataContexts;
 using ProductShop.Persistence.Abstractions.Repositories;
 using ProductShop.Persistence.DataContexts;
@@ -27,6 +26,12 @@ namespace ProductShop.IntegrationTests
                     options.UseInMemoryDatabase("ShopDBinMemory");
                 });
 
+                // Enable real DB for testing if needed here
+                //services.AddDbContext<IShopDbContext, ShopDbContext>(options =>
+                //{
+                //    options.UseSqlServer(("DbConnectionString"));
+                //});
+
                 var productRepoDescriptor = services.SingleOrDefault(
                     c => c.ServiceType == typeof(IProductRepository));
 
@@ -35,7 +40,7 @@ namespace ProductShop.IntegrationTests
                 services.AddTransient<IProductRepository, ProductRepository>();
             });
 
-            builder.UseEnvironment("Testing"); // Set the environment to "Test" or any other testing environment
+            builder.UseEnvironment("Testing");
         }
     }
 
