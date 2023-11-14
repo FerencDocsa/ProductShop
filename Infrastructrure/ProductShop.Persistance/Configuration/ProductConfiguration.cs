@@ -28,6 +28,7 @@ namespace ProductShop.Persistence.Configuration
                 .IsRequired();
 
             builder.Property(product => product.Price)
+                .HasPrecision(18, 2)
                 .IsRequired();
 
             builder.Property(product => product.Description)
